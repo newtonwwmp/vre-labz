@@ -2641,7 +2641,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 VRE LABZ. All rights reserved. | Crafted by VRE LABZ Team</p>
+                <p>&copy;  VRE LABZ. All rights reserved. | Crafted by VRE LABZ Team</p>
             </div>
         </div>
     </footer>
@@ -2915,24 +2915,7 @@
 
             const directors = [  
 
-                 {
-                    id: 3,
-                    name: "MS.Dulani Samarajeewa",
-                    role: "Head of Operations",
-                    bio: `Dulani Samarajeewa is a highly driven and well-recognised professional in the industry, with over 15 years of experience spanning both professional practice and corporate environments.
-
-She holds a Bachelor of Science (Honours) in Computer Science from the University of Nottingham (UK) and an MBA from the University of West London (UK). Dulani is a Chartered Accountant of CA Sri Lanka and CA Australia & New Zealand, a Chartered Management Accountant of the Chartered Institute of Management Accountants (UK), a Chartered Global Management Accountant of the Association of International Certified Accountants, and a Certified Practising Accountant of CPA Australia.
-
-Her unique blend of technical expertise and financial leadership positions her as a trusted advisor and strategic thinker, driving innovation and excellence across diverse sectors.`,
-                    avatar: "Dulani.jpeg",
-                    social: {
-                        linkedin: "#",
-                        twitter: "#",
-                        email: "emily@vrelabz.com"
-                    }
-                },
-              
-                {
+            {
                     id: 2,
                     name: "Ms. Jeewanthi Marasinghe",
                     role: "Chief Technology Officer",
@@ -2950,6 +2933,25 @@ Currently serving as Directress, Ms. Marasinghe leads strategic initiatives, dri
                         email: "sarah@vrelabz.com"
                     }
                 },
+
+                 {
+                    id: 3,
+                    name: "MS.Dulani Samarajeewa",
+                    role: "Head of Operations",
+                    bio: `Dulani Samarajeewa is a highly driven and well-recognised professional in the industry, with over 15 years of experience spanning both professional practice and corporate environments.
+
+She holds a Bachelor of Science (Honours) in Computer Science from the University of Nottingham (UK) and an MBA from the University of West London (UK). Dulani is a Chartered Accountant of CA Sri Lanka and CA Australia & New Zealand, a Chartered Management Accountant of the Chartered Institute of Management Accountants (UK), a Chartered Global Management Accountant of the Association of International Certified Accountants, and a Certified Practising Accountant of CPA Australia.
+
+Her unique blend of technical expertise and financial leadership positions her as a trusted advisor and strategic thinker, driving innovation and excellence across diverse sectors.`,
+                    avatar: "Dulani.jpeg",
+                    social: {
+                        linkedin: "#",
+                        twitter: "#",
+                        email: "emily@vrelabz.com"
+                    }
+                },
+              
+             
               
             ];
 
@@ -3107,43 +3109,30 @@ Currently serving as Directress, Ms. Marasinghe leads strategic initiatives, dri
                     category: "web",
                     title: "E-commerce Platform",
                     description: "Modern online store with advanced features and payment integration",
-                    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    image: "../image.png"
                 },
                 {
                     id: 2,
-                    category: "design",
-                    title: "Brand Identity",
-                    description: "Complete brand redesign and UI/UX overhaul",
-                    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    category: "web",
+                    title: "Protfolio",
+                    description: "Professional portfolio website showcasing creative works and projects",
+                    image: "../1.png"
                 },
                 {
                     id: 3,
                     category: "web",
-                    title: "Healthcare Portal",
-                    description: "Secure patient portal with telemedicine capabilities",
-                    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                    title: "VRE REALSTATE",
+                    description: "Real estate platform for property listings and management",
+                    image: "../VRE.png"
                 },
                 {
                     id: 4,
-                    category: "mobile",
-                    title: "Fitness App",
-                    description: "Cross-platform mobile app with workout tracking",
-                    image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                },
-                {
-                    id: 5,
-                    category: "design",
-                    title: "Restaurant Website",
-                    description: "Beautiful design with online ordering system",
-                    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                },
-                {
-                    id: 6,
                     category: "web",
-                    title: "SaaS Dashboard",
-                    description: "Real-time analytics and data visualization platform",
-                    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-                }
+                    title: "Gjaba Food",
+                    description: "Restaurant website with menu display and online ordering system",
+                    image: "../gajaba.png"
+                },
+              
             ];
 
             const filteredItems = filter === "all"
@@ -3298,12 +3287,50 @@ Currently serving as Directress, Ms. Marasinghe leads strategic initiatives, dri
                     [name]: value
                 }));
             };
-
             const handleSubmit = (e) => {
-                e.preventDefault();
-                alert(`Thank you, ${formData.name}! We'll contact you at ${formData.email} within 24 hours.`);
-                setFormData({ name: "", email: "", company: "", phone: "", message: "" });
-            };
+    e.preventDefault();
+
+    // Show loading state
+    const submitButton = e.target.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<span>Sending...</span>';
+    submitButton.disabled = true;
+
+    fetch("https://script.google.com/macros/s/AKfycbxy5Mm1eeZR6xIaXYlf2wj9Mak_oZoU1205UfG6TVrgAzv_-ZD656KhVv6txyv6TZHz/exec", {
+        method: "POST",
+        mode: "no-cors", // Important for Google Apps Script
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            phone: formData.phone,
+            message: formData.message
+        })
+    })
+    .then(() => {
+        // With no-cors mode, we can't read the response, so we assume success
+        alert("✅ Message sent successfully! We'll get back to you soon.");
+        setFormData({
+            name: "",
+            email: "",
+            company: "",
+            phone: "",
+            message: ""
+        });
+    })
+    .catch(err => {
+        console.error("Submission error:", err);
+        alert("❌ Submission failed. Please try again or contact us directly at info@vrelabz.com");
+    })
+    .finally(() => {
+        // Restore button state
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+    });
+};
 
             return (
                 <section className="contact" id="contact">
@@ -3402,6 +3429,8 @@ Currently serving as Directress, Ms. Marasinghe leads strategic initiatives, dri
                                             name="message"
                                             value={formData.message}
                                             onChange={handleChange}
+                                            rows={6}
+                                            placeholder="Tell us about your project..."
                                             required
                                         ></textarea>
                                     </div>
